@@ -6,14 +6,14 @@
 
 |------|----|-------|
 
-|id         |int        |           |　　
-|nane       |string     |           |　　
-|ditail     |text       |           |　　
-|deadline_at|datetime   |           |　　
-|priority   |int        |           |　　
-|status     |int        |           |　　
-|created_at |datetime   |           |　　
-|updated_at |datetime   |           |　　
+|id         |int        |           |  
+|nane       |string     |           |  
+|ditail     |text       |           |  
+|deadline_at|datetime   |           |  
+|priority   |int        |           |  
+|status     |int        |           |  
+|created_at |datetime   |           |  
+|updated_at |datetime   |           |  
 
 
 ## categriesテーブル
@@ -22,10 +22,10 @@
 
 |------|----|-------|
 
-|id         |int        |           |　　
-|nane       |string     |           |　　
-|created_at |datetime   |           |　　
-|updated_at |datetime   |           |　　
+|id         |int        |           |  
+|nane       |string     |           |  
+|created_at |datetime   |           |  
+|updated_at |datetime   |           |  
 
 ## tasks_categriesテーブル
 
@@ -33,9 +33,9 @@
 
 |------|----|-------|
 
-|id             |int        |           |　　
-|tasks_id       |int        |           |　　
-|categries_id   |int        |           |　　
-|created_at     |datetime   |           |　　
-|updated_at     |datetime   |           |　　
+|id             |int        |           |  
+|tasks_id       |int        |           |  
+|categries_id   |int        |           |  
+|created_at     |datetime   |           |  
+|updated_at     |datetime   |           |  
 
