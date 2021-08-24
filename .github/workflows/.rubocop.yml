@@ -38,17 +38,17 @@ jobs:
     TargetRubyVersion: 3.0.1
     # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
     # to ignore them, so only the ones explicitly set in this file are enabled.
-   DisabledByDefault: true
-   Exclude:
-    - Gemfile
-    - db/fixtures/**/*
-    - db/schema.rb
-    - db/migrate/*
-    - vendor/**/*
-    - bin/bundle
-    - config/puma/*.rb
+    DisabledByDefault: true
+    Exclude:
+      - Gemfile
+      - db/fixtures/**/*
+      - db/schema.rb
+      - db/migrate/*
+      - vendor/**/*
+      - bin/bundle
+      - config/puma/*.rb
 
-# Prefer &&/|| over and/or.
+  # Prefer &&/|| over and/or.
   Style/AndOr:
     Enabled: true
 
