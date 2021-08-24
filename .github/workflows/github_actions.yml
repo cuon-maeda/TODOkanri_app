@@ -27,3 +27,4 @@ jobs:
           bundle check || bundle install -j4
       - name: run rubocop
         run: bundle exec rubocop
+        

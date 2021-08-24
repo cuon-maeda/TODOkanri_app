@@ -32,6 +32,12 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# .env ファイルを無視
+.env
+
+# vender/bundle 下のファイルを無視
+/vendor/bundle/
+
 /public/packs
 /public/packs-test
 /node_modules
