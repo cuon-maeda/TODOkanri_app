@@ -28,6 +28,7 @@ jobs:
       - name: run rubocop
         run: bundle exec rubocop
 
+        
 require:
   - rubocop
   - rubocop-performance
@@ -242,4 +243,3 @@ Style/TrivialAccessors:
 
 Metrics/LineLength:
   Max: 140
-
