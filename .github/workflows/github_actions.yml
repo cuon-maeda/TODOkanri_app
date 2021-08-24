@@ -1,14 +1,29 @@
-image: ruby:3.0.2
+name: Build & Rubocop
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-github:
-  default:
-    - step:
-        cashes:
-          - bundler
-        script:
-          - bundle install --path=vendor/bundle
-          - bundle exec rubocop
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: 'TODOkanri_app_development' 
+          POSTGRES_USER: 'todo_db'
+          POSTGRES_PASSWORD: 'yuTo0713'
+    container:
+      image: ruby:3.0.2
+      env:
+        RAILS_ENV: test
+        POSTGRES_HOST: postgres
 
-definisions: 
-  cashes: 
-    bundler: vender/bundle
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: bundler set up
+        run: |
+          gem install bundler
+          bundle config set path 'vendor/bundle'
+          bundle check || bundle install -j4
+      - name: run rubocop
+        run: bundle exec rubocop
