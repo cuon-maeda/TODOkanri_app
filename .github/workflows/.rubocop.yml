@@ -1,0 +1,36 @@
+# RuboCop-railsの読み込み
+require:
+  - rubocop-rails
+
+# 全体に適応する項目を定義 ここでExcludeに設定したファイルはチェック対象外になる
+AllCops:
+  # 除外
+  Exclude:
+    - 'config.ru'
+    - 'bin/*'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'vendor/bundle/**/*'
+    - !ruby/regxp /old_and_unused¥.rb$/
+  NewCops: enable
+  DisplayStyleGuide: true
+  # 日本語を使いたい場合は以下の一行も追加
+  StyleGuideBaseURL: https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Style/Documentation:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視（freezeになるのはRuby3以降）
+Style/FrozenStringLiteralComment:
+  Enabled: false

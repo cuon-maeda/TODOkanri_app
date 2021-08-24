@@ -1,0 +1,14 @@
+image: ruby:3.0
+
+github:
+  default:
+    - step:
+        cashes:
+          - bundler
+        script:
+          - bundle install --path=vendor/bundle
+          - bundle exec rubocop
+
+definisions:
+  cashes: 
+    bundler: vender/bundle
