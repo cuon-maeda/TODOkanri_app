@@ -34,7 +34,7 @@ jobs:
   - rubocop-rails
   - rubocop-rspec
 
-AllCops:
+ AllCops:
   TargetRubyVersion: 3.0.1
   # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
   # to ignore them, so only the ones explicitly set in this file are enabled.
