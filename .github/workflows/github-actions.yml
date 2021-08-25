@@ -26,4 +26,4 @@ jobs:
           bundle config set path 'vendor/bundle'
           bundle check || bundle install -j4
       - name: run rubocop
-        run: bundle exec rubocop app/views
+        run: bundle exec rubocop
