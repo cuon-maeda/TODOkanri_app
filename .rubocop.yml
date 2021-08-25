@@ -212,5 +212,5 @@ Style/ColonMethodCall:
 Style/TrivialAccessors:
   Enabled: true
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 140
