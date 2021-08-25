@@ -139,10 +139,7 @@ Layout/SpaceInsideParens:
 
 # Check quotes usage according to lint rule below.
 Style/StringLiterals:
-  EnforcedStyle: single_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
+  Enabled: false
 
 # Detect hard tabs, no hard tabs.
 Layout/IndentationStyle:
