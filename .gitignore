@@ -38,3 +38,12 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# .env ファイルを無視
+
+.env
+
+
+# vender/bundle 下のファイルを無視
+
+/vendor/bundle/
