@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TODO管理アプリ</title>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <div class="card p-3">
             <h2 class="card-title "><%= @task.name%></h2>
             <p><span class="badge badge-secondary">名前</span>:<%= @task.user%></p>
@@ -17,7 +17,7 @@
             <p><span class="badge badge-secondary">詳細</span>:</p>
             <p><span class="badge badge-secondary">進行度</span>:</p>
         </div>
-        <%=link_to("戻る", "/") %>
+        <%=link_to "戻る", top_index_path %>
     </div>
 </body>
 

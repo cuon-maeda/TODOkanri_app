@@ -1,9 +1,13 @@
 class TopController < ApplicationController
   def index
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = Task.order(created_at: :desc)
   end
 
-  def ditail
+  def show
     @task = Task.find_by(id: params[:id])
+  end
+
+  def new
+
   end
 end

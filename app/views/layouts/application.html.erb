@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TODOkanriApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>TODOkanriApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="container">
+  <header class="d-flex justify-content-between">
+    <h1>TODO管理アプリ!</h1>
+    <div class="d-flex align-items-center">
+      <%= link_to top_index_path do%>
+      <button class="btn btn-primary mr-1">トップ</button>
+      <% end %>
+      <%= link_to new_top_path do%>
+      <button class="btn btn-primary">タスク作成</button>
+      <% end %>
+
+    </div>
+  </header>
+  <%= yield %>
+</body>
+
 </html>
