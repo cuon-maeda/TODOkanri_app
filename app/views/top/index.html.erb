@@ -25,7 +25,7 @@
                     <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
                     <td><%= task.user %></td>
                     <td><%= task.name%></td>
-                    <td><%=link_to "編集", top_path(task)%></td>
+                    <td><%=link_to "詳細", top_path(task)%></td>
                 </tr>
                 <% end %>
             </tbody>
