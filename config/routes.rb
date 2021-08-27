@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root 'top#index'
-  resources :top, only: [:index, :show, :new]
+  root 'task#index'
+  resources :task, only: [:index, :show, :new]
 end
