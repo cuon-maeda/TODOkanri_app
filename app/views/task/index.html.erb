@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO管理アプリ</title>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">投稿日</th>
+                    <th scope="col">名前</th>
+                    <th scope="col">タスク</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @tasks.each do |task| %>
+                <tr>
+                    <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
+                    <td><%= task.user %></td>
+                    <td><%= task.name%></td>
+                    <td><%=link_to "詳細", task_path(task)%></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
