@@ -12,10 +12,10 @@
 </head>
 
 <body class="container">
-  <header class="d-flex justify-content-between">
+  <header class="d-flex justify-content-between mt-4">
     <h1>TODO管理アプリ!</h1>
     <div class="d-flex align-items-center">
-      <%= link_to task_index_path do%>
+      <%= link_to tasks_path do%>
       <button class="btn btn-primary mr-1">トップ</button>
       <% end %>
       <%= link_to new_task_path do%>
@@ -24,6 +24,12 @@
 
     </div>
   </header>
+  <% if flash[:notice] %>
+  <p class="alert alert-info"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:alert] %>
+  <p class="alert alert-danger"><%= flash[:alert] %></p>
+  <% end %>
   <%= yield %>
 </body>
 
