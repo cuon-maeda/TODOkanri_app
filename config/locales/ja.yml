@@ -4,3 +4,5 @@ ja:
       task:
         name: タスク
         user: 名前
+      category:
+        name: カテゴリ  

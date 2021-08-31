@@ -5,6 +5,7 @@
         <th scope="col">投稿日</th>
         <th scope="col">名前</th>
         <th scope="col">タスク</th>
+        <th scope="col"><%=link_to "カテゴリー", categories_path%></th>
         <th></th>
       </tr>
     </thead>
@@ -14,6 +15,7 @@
           <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
           <td><%= task.user %></td>
           <td><%= task.name%></td>
+          <td></td> 
           <td><%=link_to "詳細", task_path(task)%></td>
         </tr>
       <% end %>

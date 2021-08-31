@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_26_093804) do
+ActiveRecord::Schema.define(version: 2021_08_31_044438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false, comment: "カテゴリーの内容"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.string "name", null: false, comment: "タスクの内容"
@@ -22,4 +28,15 @@ ActiveRecord::Schema.define(version: 2021_08_26_093804) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tasks_categories", force: :cascade do |t|
+    t.bigint "task_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_tasks_categories_on_category_id"
+    t.index ["task_id"], name: "index_tasks_categories_on_task_id"
+  end
+
+  add_foreign_key "tasks_categories", "categories"
+  add_foreign_key "tasks_categories", "tasks"
 end
