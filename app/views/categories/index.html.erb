@@ -1,0 +1,12 @@
+<div class="d-flex pt-2 pb-2 mb-1 align-items-center border-top border-bottom">
+  <h3 class="mt-1 mb-1">カテゴリー覧</h3>
+  <%= link_to new_category_path do%>
+    <button class="btn btn-primary ml-5">カテゴリ作成</button>
+  <% end %>
+</div>
+<div class="d-flex align-content-center flex-wrap">
+  <% @categories.each do |category| %>
+    <h1><span class="badge badge-secondary ml-2"><%= category.name%></span></h1>
+  <% end %>
+</div>
+

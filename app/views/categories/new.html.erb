@@ -1,0 +1,19 @@
+<div class="box">
+  <h3 class="box_title">カテゴリの登録</h3>
+  <% if @category.errors.any? %>
+    <div class="alert alert-danger">
+      <% @category.errors.full_messages.each do |message| %>
+        <p class="mt-1 mb-1">・<%= message %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <%= form_with(model: @category) do |f| %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">カテゴリ</span>
+      </div>
+      <%= f.text_field :name, class: "form-control"  %>
+    </div>
+    <%= f.submit value: "登録!", class: "btn btn-secondary btn-lg active" %>
+  <% end %>
+</div>
