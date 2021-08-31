@@ -1,22 +1,22 @@
 <div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">投稿日</th>
-                <th scope="col">名前</th>
-                <th scope="col">タスク</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @tasks.each do |task| %>
-            <tr>
-                <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
-                <td><%= task.user %></td>
-                <td><%= task.name%></td>
-                <td><%=link_to "詳細", task_path(task)%></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">投稿日</th>
+        <th scope="col">名前</th>
+        <th scope="col">タスク</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+      <tr>
+        <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
+        <td><%= task.user %></td>
+        <td><%= task.name%></td>
+        <td><%=link_to "詳細", task_path(task)%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
