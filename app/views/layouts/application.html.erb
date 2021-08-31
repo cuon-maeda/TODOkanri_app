@@ -16,19 +16,19 @@
     <h1>TODO管理アプリ!</h1>
     <div class="d-flex align-items-center">
       <%= link_to tasks_path do%>
-      <button class="btn btn-primary mr-1">トップ</button>
+        <button class="btn btn-primary mr-1">トップ</button>
       <% end %>
       <%= link_to new_task_path do%>
-      <button class="btn btn-primary">タスク作成</button>
+        <button class="btn btn-primary">タスク作成</button>
       <% end %>
 
     </div>
   </header>
   <% if flash[:notice] %>
-  <p class="alert alert-info"><%= flash[:notice] %></p>
+    <p class="alert alert-info"><%= flash[:notice] %></p>
   <% end %>
   <% if flash[:alert] %>
-  <p class="alert alert-danger"><%= flash[:alert] %></p>
+    <p class="alert alert-danger"><%= flash[:alert] %></p>
   <% end %>
   <%= yield %>
 </body>
