@@ -15,7 +15,7 @@
           <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
           <td><%= task.user %></td>
           <td><%= task.name%></td>
-          <td>a</td>
+          <td></td> 
           <td><%=link_to "詳細", task_path(task)%></td>
         </tr>
       <% end %>
