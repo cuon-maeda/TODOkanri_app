@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :category_set, only: [:show, :edit, :update, :destroy]
+
   def index
     @categories = Category.order(created_at: :desc)
   end
@@ -16,7 +18,27 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @category.update(category_params)
+      redirect_to categories_path, notice: "タスクを編集しました"
+    else
+      render action: "edit"
+    end
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path, alert: "タスクを削除しました"
+  end
+
   private
+    def category_set
+      @category = Category.find(params[:id])
+    end
+
     def category_params
       params.require(:category).permit(:name)
     end

@@ -6,7 +6,12 @@
 </div>
 <div class="d-flex align-content-center flex-wrap">
   <% @categories.each do |category| %>
-    <h1><span class="badge badge-secondary ml-2"><%= category.name%></span></h1>
+    <h1 class="mr-3 ml-3">
+      <%= link_to category_path(category) do %>
+        <span class="badge badge-secondary"><%= category.name%></span>
+      <% end %>
+    </h1>
+    
   <% end %>
 </div>
 
