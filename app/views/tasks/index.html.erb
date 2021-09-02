@@ -5,6 +5,8 @@
         <th scope="col">投稿日/期限</th>
         <th scope="col">名前</th>
         <th scope="col">タスク</th>
+        <th scope="col">進行状況</th>
+        <th scope="col">優先度</th>
         <th scope="col"><%=link_to "カテゴリー", categories_path%></th>
         <th></th>
       </tr>
@@ -12,15 +14,18 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <th><%= task.created_at.strftime('%m/%d')%> ~ 
-            <% if task.limit_at.present?%>
-              <%= task.limit_at.strftime('%m/%d')%>
-            <% else %>
-              なし
+          <th>
+            <%= task.created_at.strftime('%m/%d')%> ~ 
+              <% if task.limit_at.present?%>
+                <%= task.limit_at.strftime('%m/%d')%>
+              <% else %>
+                なし
             <% end %>  
           </th>
           <td><%= task.user %></td>
           <td><%= task.name%></td>
+          <td><%= task.status_i18n%></td>
+          <td><%= task.priority_i18n%></td>
           <td>
             <% task.categories.each do |c| %>
               <%= link_to category_path(c) do %>

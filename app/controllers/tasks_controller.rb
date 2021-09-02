@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :task_set, only: [:show, :edit, :update, :destroy]
   before_action :categories_set, only: [:new, :create, :edit, :update]
   def index
-    @tasks = Task.order(created_at: :desc)
+    @tasks = Task.order(created_at: :desc).where.not(status: 2)
   end
 
   def show
@@ -47,6 +47,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :user, :limit_at, category_ids: [])
+      params.require(:task).permit(:name, :user, :limit_at, :status, :priority, category_ids: [])
     end
 end
