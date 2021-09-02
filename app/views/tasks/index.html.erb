@@ -2,7 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">投稿日</th>
+        <th scope="col">投稿日/期限</th>
         <th scope="col">名前</th>
         <th scope="col">タスク</th>
         <th scope="col"><%=link_to "カテゴリー", categories_path%></th>
@@ -12,10 +12,22 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <th><%= task.created_at.strftime('%Y/%m/%d')%></th>
+          <th><%= task.created_at.strftime('%m/%d')%> ~ 
+            <% if task.limit_at.present?%>
+              <%= task.limit_at.strftime('%m/%d')%>
+            <% else %>
+              なし
+            <% end %>  
+          </th>
           <td><%= task.user %></td>
           <td><%= task.name%></td>
-          <td></td> 
+          <td>
+            <% task.categories.each do |c| %>
+              <%= link_to category_path(c) do %>
+                <span class="badge badge-info mr-1"><%= c.name %></span> 
+              <% end %>  
+            <% end %>
+          </td> 
           <td><%=link_to "詳細", task_path(task)%></td>
         </tr>
       <% end %>

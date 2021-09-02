@@ -20,6 +20,17 @@
       </div>
       <%= f.text_field :user, class: "form-control", value: @task.user %>
     </div>
+    <h5>期限</h5>
+    <%= f.date_field :limit_at, class: "mb-3" %>
+    <h5>カテゴリ選択</h5>
+    <div class="d-flex flex-wrap">
+      <%=f.collection_check_boxes(:category_ids, @categories, :id, :name) do |c|%>
+        <div class="d-flex align-items-center mr-3 ml-3 mb-2">
+          <%= c.check_box %>
+          <p class="mb-0 h5 ml-1"><span class="badge badge-info"><%= c.text %></span></p>
+        </div>
+      <% end %>
+    </div>
     <%= f.submit value: "編集!", class: "btn btn-secondary btn-lg active" %>
   <% end %>
 </div>
