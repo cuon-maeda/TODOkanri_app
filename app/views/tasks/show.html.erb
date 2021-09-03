@@ -3,8 +3,13 @@
     <h3 class="box_title "><%= @task.name%></h3>
     <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">名前</span>:<%= @task.user%></p>
     <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">作成日</span>:<%= @task.created_at.strftime('%Y/%m/%d')%></p>
-    <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">詳細</span>:</p>
-    <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">進行度</span>:</p>
+    <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">詳細</span>:<%= @task.detail%></p>
+    <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">進行度</span>:<%= @task.status_i18n%></p>
+    <p class="pb-1 mb-1 border-bottom"><span class="badge badge-secondary">カテゴリ</span>:
+      <% @task.categories.each do |c| %>
+        <span class="badge badge-info mr-1"><%= c.name %></span> 
+      <% end %>
+    </p>
     <div class="d-flex justify-content-between mr-3 ml-3">
       <%= link_to edit_task_path(@task) do%>
         <button class="btn btn-secondary btn-lg active mt-3">編集</button>

@@ -20,6 +20,35 @@
       </div>
       <%= f.text_field :user, class: "form-control", value: @task.user %>
     </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">詳細</span>
+      </div>
+      <%= f.text_area :detail, class: "form-control"  %>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <h5>期限</h5>
+        <%= f.date_field :limit_at, class: "mb-3" %>
+      </div>
+      <div>
+        <h5>進行状況</h5>
+        <%= f.select :status, Task.statuses_i18n.keys.map {|k| [Task.statuses_i18n[k], k]}, include_blank: '選択してください'%>
+      </div>
+      <div>
+        <h5>優先度</h5>
+        <%= f.select :priority, Task.priorities_i18n.keys.map {|k| [Task.priorities_i18n[k], k]}, include_blank: '選択してください'%>
+      </div>
+    </div>
+    <h5>カテゴリ選択</h5>
+    <div class="d-flex flex-wrap">
+      <%=f.collection_check_boxes(:category_ids, @categories, :id, :name) do |c|%>
+        <div class="d-flex align-items-center mr-3 ml-3 mb-2">
+          <%= c.check_box %>
+          <p class="mb-0 h5 ml-1"><span class="badge badge-info"><%= c.text %></span></p>
+        </div>
+      <% end %>
+    </div>
     <%= f.submit value: "編集!", class: "btn btn-secondary btn-lg active" %>
   <% end %>
 </div>

@@ -29,6 +29,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'rails-i18n'
+gem 'enum_help'
 
 
 group :development, :test do

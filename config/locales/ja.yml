@@ -1,8 +1,19 @@
 ja:
+  enums:
+    task:
+      status: 
+        untouched: 未完了  
+        working: 着手中
+        done: 完了
+      priority:
+        hight: 高
+        middum: 中
+        low: 低   
   activerecord:
     attributes:
       task:
         name: タスク
         user: 名前
+        status: 進行状況
       category:
         name: カテゴリ  
