@@ -28,9 +28,12 @@ gem 'bootstrap', '~> 4.1.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# 日本語化
 gem 'rails-i18n'
 gem 'enum_help'
 
+# 検索機能
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
