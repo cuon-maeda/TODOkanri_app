@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   validates :name, { presence: true }
   validates :user, { presence: true }
+  validates :status, { presence: true }
   enum status: {
     untouched: 0,
     working: 1,

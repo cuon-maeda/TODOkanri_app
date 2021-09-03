@@ -14,5 +14,6 @@ ja:
       task:
         name: タスク
         user: 名前
+        status: 進行状況
       category:
         name: カテゴリ  
