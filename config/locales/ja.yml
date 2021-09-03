@@ -2,9 +2,9 @@ ja:
   enums:
     task:
       status: 
-        untouched: "未完了"  
-        working: "着手中"
-        done: "完了"
+        untouched: 未完了  
+        working: 着手中
+        done: 完了
       priority:
         hight: 高
         middum: 中
