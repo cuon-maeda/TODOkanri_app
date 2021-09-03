@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :task_set, only: [:show, :edit, :update, :destroy]
   before_action :categories_set, only: [:new, :create, :edit, :update]
+  before_action :set_q, only: [:index, :search]
   def index
     @tasks = Task.order(created_at: :desc).where.not(status: 2)
   end
@@ -37,9 +38,17 @@ class TasksController < ApplicationController
     redirect_to tasks_path, alert: "タスクを削除しました"
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
     def task_set
       @task = Task.find(params[:id])
+    end
+
+    def set_q
+      @q = Task.ransack(params[:q])
     end
 
     def categories_set
