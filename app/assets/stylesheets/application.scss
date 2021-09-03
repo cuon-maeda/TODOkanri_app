@@ -1,17 +1,47 @@
 @import "bootstrap";
 
-.box {
-  position: relative;
-  margin-top: 24px;
-  padding: 36px 48px;
-  border: solid 1px;
+body {
+  background-color: #f7f7f7;
+}
 
-  .box_title {
-    position: absolute;
-    padding: 0 1em;
-    top: 0;
-    left: 0;
+.task-search {
+  form {
+    padding: 1em;
     background-color: white;
-    transform: translateY(-50%) translateX(1em);
+    box-sizing: border-box;
   }
+  label {
+    margin: 0;
+  }
+  input[type="search"] {
+    border-radius: 3px;
+    border: solid  1px;
+    margin-bottom: 1em;
+  }
+  select {
+    margin-bottom: 1em;
+  }
+}
+
+.task-list {
+  min-height: calc(100vh - 100px);;
+  padding: 1em;
+  margin-left: 1em;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.category-list {
+  min-height: calc(100vh - 180px);;
+  padding: 1em;
+  background-color: white;
+  box-sizing: border-box;
+  border: solid 1px #dee2e6;
+}
+
+.box {
+  margin-top: 24px;
+  padding: 24px 48px 36px;
+  border: solid 1px #dee2e6;
+  background-color: white;
 }

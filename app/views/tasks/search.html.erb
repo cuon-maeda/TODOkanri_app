@@ -1,4 +1,19 @@
-<div class="container">
+<div class="d-flex">
+  <div class="task-search">
+    <%= search_form_for @q, url: search_tasks_path, class: "border" do |f| %>
+      <h5>検索欄</h5>
+      <%= f.label :name_cont, '・タスク' %>
+      <%= f.search_field :name_cont %>
+      <br>
+      <%= f.label :status_eq, '・進行状況' %>
+      <%= f.select :status_eq, Task.statuses.map { |k,v| [Task.statuses_i18n[k], v]}, include_blank: '選択してください' %>
+      <br>
+      <%= f.label :priority_eq, '・優先度' %>
+      <%= f.select :priority_eq, Task.priorities.map { |k,v| [Task.priorities_i18n[k], v]}, include_blank: '選択してください' %>
+      <%= f.submit '検索' ,class: "btn btn-secondary w-100" %>
+    <% end %>
+  </div>
+<div class="task-list container border">
   <table class="table">
     <thead>
       <tr>
@@ -38,4 +53,5 @@
       <% end %>
     </tbody>
   </table>
+</div>
 </div>
