@@ -4,14 +4,15 @@
     <button class="btn btn-primary ml-5">カテゴリ作成</button>
   <% end %>
 </div>
-<div class="d-flex align-content-center flex-wrap">
-  <% @categories.each do |category| %>
-    <h1 class="mr-3 ml-3">
-      <%= link_to category_path(category) do %>
-        <span class="badge badge-secondary"><%= category.name%></span>
-      <% end %>
-    </h1>
-    
-  <% end %>
+<div class="category-list">
+  <div class="d-flex align-content-center flex-wrap">
+    <% @categories.each do |category| %>
+      <h1 class="mr-3 ml-3">
+        <%= link_to category_path(category) do %>
+          <span class="badge badge-info"><%= category.name%></span>
+        <% end %>
+      </h1>
+    <% end %>
+  </div>
 </div>
 
