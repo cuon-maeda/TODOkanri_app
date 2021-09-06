@@ -23,22 +23,28 @@ RSpec.describe TasksController, type: :request do
     end
   end
 
-  describe 'GET /edit' do
+  describe 'GET /new' do
     context '適切なステータスコードが帰ってくるか' do
-      subject { get new_task_path(task)}
+      subject { get new_task_path}
       it { is_expected.to eq(200) }
     end
   end
 
-  describe 'GET /destroy' do
+  describe 'DELETE /destroy' do
     context 'destroyコントローラーのテスト' do
-      subject { get new_task_path(task)}
+      subject { delete task_path(task)}
       it '適切なステータスコードが帰ってくる' do
-        is_expected.to eq(200)
+        is_expected.to eq(302)
       end
 
       it 'レコードが1つ減ること' do
+        expect do
+          subject
+        end.to change(Task, :count).by(-1)
+      end
 
+      it 'redirect 先が正しい' do
+        is_expected.to redirect_to(tasks_path)
       end
     end
   end
