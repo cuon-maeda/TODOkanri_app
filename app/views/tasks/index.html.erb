@@ -1,6 +1,6 @@
 <div class="d-flex">
   <div class="task-search">
-    <%= search_form_for @q, url: search_tasks_path, class: "border" do |f| %>
+    <%= search_form_for @q, url: tasks_path, class: "border" do |f| %>
       <h5>検索欄</h5>
       <%= f.label :name_cont, '・タスク' %>
       <%= f.search_field :name_cont %>
