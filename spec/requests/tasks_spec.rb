@@ -61,7 +61,7 @@ RSpec.describe TasksController, type: :request do
 
       it '作成されたレコードの値が意図したものになっていること' do
         subject
-        expect(Task.last.id).to eq(task.id+1)
+        expect(task_params[:name]).to eq(Task.last.name)
       end
 
       it 'redirect 先が正しい' do
@@ -85,5 +85,4 @@ RSpec.describe TasksController, type: :request do
       end
     end
   end
-  
 end
