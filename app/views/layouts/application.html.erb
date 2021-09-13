@@ -14,18 +14,19 @@
 <body class="container">
   <header class="d-flex justify-content-between mt-4">
     <h1>TODO管理アプリ!</h1>
-    <div class="d-flex align-items-center">
-      <%= link_to tasks_path do%>
-        <button class="btn btn-primary mr-1">トップ</button>
-      <% end %>
-      <%= link_to categories_path do%>
-        <button class="btn btn-primary mr-1">カテゴリ一覧</button>
-      <% end %>
-      <%= link_to new_task_path do%>
-        <button class="btn btn-primary">タスク作成</button>
-      <% end %>
-
-    </div>
+    <% if logged_in? %>
+      <div class="d-flex align-items-center">
+        <%= link_to tasks_path do%>
+          <button class="btn btn-primary mr-1">トップ</button>
+        <% end %>
+        <%= link_to categories_path do%>
+          <button class="btn btn-primary mr-1">カテゴリ一覧</button>
+        <% end %>
+        <%= link_to new_task_path do%>
+          <button class="btn btn-primary">タスク作成</button>
+        <% end %>
+      </div>
+    <% end %>
   </header>
   <% if flash[:notice] %>
     <p class="alert alert-info"><%= flash[:notice] %></p>

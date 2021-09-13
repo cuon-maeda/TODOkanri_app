@@ -12,6 +12,7 @@ class Task < ApplicationRecord
     middum: 1,
     low: 2
   }
+  belongs_to :user
   has_many :tasks_categories, dependent: :destroy
   has_many :categories, through: :tasks_categories
 end

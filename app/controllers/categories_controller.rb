@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :category_set, only: [:show, :edit, :update, :destroy]
-
+  before_action :redirect_login_page
   def index
-    @categories = Category.order(created_at: :desc)
+    @categories = Category.order(created_at: :desc).where(user: current_user)
   end
 
   def new
@@ -40,6 +40,6 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :user_id)
     end
 end

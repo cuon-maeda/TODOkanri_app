@@ -1,3 +1,11 @@
+<% if logged_in? %>
+  <div class="d-flex mb-3">
+  <p class="mb-0 d-flex align-items-center">こんにちは、<%=current_user.name%>さん</p>
+    <%= link_to logout_users_path, method: :post do%>
+      <button class="btn btn-danger ml-3">ログアウト</button>
+    <% end %>
+  </div>  
+<% end %>
 <div class="d-flex">
   <div class="task-search">
     <%= search_form_for @q, url: tasks_path, class: "border" do |f| %>
@@ -18,7 +26,6 @@
       <thead>
         <tr>
           <th scope="col">投稿日/期限</th>
-          <th scope="col">名前</th>
           <th scope="col">タスク</th>
           <th scope="col">進行状況</th>
           <th scope="col">優先度</th>
@@ -37,7 +44,6 @@
                   なし
               <% end %>  
             </th>
-            <td><%= task.user %></td>
             <td><%= task.name%></td>
             <td><%= task.status_i18n%></td>
             <td><%= task.priority_i18n%></td>
