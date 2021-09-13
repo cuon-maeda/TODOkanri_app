@@ -1,13 +1,13 @@
 class TasksController < ApplicationController
   before_action :task_set, only: [:show, :edit, :update, :destroy]
   before_action :categories_set, only: [:new, :create, :edit, :update]
-
+  before_action :redirect_login_page
   def index
     @q = Task.ransack(params[:q])
     if params[:q].present?
-      @tasks = @q.result.order(created_at: :desc)
+      @tasks = @q.result.order(created_at: :desc).where(user: current_user)
     else
-      @tasks = Task.order(created_at: :desc).where.not(status: 2)
+      @tasks = Task.order(created_at: :desc).where(user: current_user).where.not(status: 2)
     end
   end
 
@@ -53,6 +53,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:name, :user, :limit_at, :status, :priority, :detail, category_ids: [])
+      params.require(:task).permit(:name, :limit_at, :status, :priority, :detail, :user_id, category_ids: [])
     end
 end

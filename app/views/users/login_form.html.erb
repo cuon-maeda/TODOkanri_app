@@ -1,0 +1,27 @@
+<div class="w-50 mx-auto p-3 mt-5 border bg-white">
+  <% if @message %>
+    <div class="alert alert-danger">
+      <p class="mt-1 mb-1"><%= @message %></p>
+    </div>  
+  <% end %>
+  <h3>ログイン</h3>
+  <%= form_with(url: login_users_path, class: "form-signin") do |f| %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">メールアドレス</span>
+      </div>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">パスワード</span>
+      </div>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <%= f.submit value: "Sign In", class: "mx-auto btn btn-outline-primary my-1" %>
+  <% end %>
+  <h3 class="mt-3">新規登録</h3>
+  <%= link_to new_user_path do%>
+      <button class="mx-auto btn btn-outline-primary my-1">新規登録ページへ</button>
+  <% end %>
+</div>
